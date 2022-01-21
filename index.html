@@ -26,8 +26,11 @@
                 else;
             }
 
+            function playerWeapon(){
+                return prompt('Rock, Paper, or Scissors! Choose your weapon: ').toLowerCase();
+            }
             const computerSelection = computerPlay();
-            const playerSelection = prompt ('Rock, Paper, or Scissors! Choose your weapon: ').toLowerCase();
+            const playerSelection = playerWeapon();
 
             function round (computerSelection, playerSelection){
                 
