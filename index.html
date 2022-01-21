@@ -23,14 +23,15 @@
         }
 
         const computerSelection = computerPlay(randomNumber);
-        const playerSelection = prompt ('Rock, Paper, or Scissors! Choose your weapon: ').toLowerCase();
 
         let playerScore = 0;
         let computerScore = 0;
 
-        function round (computerSelection, playerSelection){
+        function round (computerSelection){
         
+            const playerSelection = prompt ('Rock, Paper, or Scissors! Choose your weapon: ');
             
+
             if (playerSelection === 'rock' && computerSelection === 'Paper'){
                 computerScore = computerScore + 1;
                 return ('You lose! Paper beats Rock');
@@ -71,19 +72,20 @@
                 return ('You lose! Rock beats Scissors');
             }
             else;
+
+            console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
+            console.log (round(computerSelection));
         } 
 
-        console.log (round(computerSelection, playerSelection));
-        console.log (('Player: ',playerScore),('Computer: ',computerScore));
 
 
         function game(){
-            round (computerSelection, playerSelection);
-            round (computerSelection, playerSelection);
-            round (computerSelection, playerSelection);
-            round (computerSelection, playerSelection);
-            round (computerSelection, playerSelection);
+            round (computerSelection);
+            round (computerSelection);
+            round (computerSelection);
+            round (computerSelection);
         }
+
 
         console.log (game());
     </script>
