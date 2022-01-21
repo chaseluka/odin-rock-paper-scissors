@@ -8,86 +8,86 @@
 </head>
 <body>
     <script>
-        let randomNumber = Math.random()*3;
-
-        function computerPlay (randomNumber){
-            if (randomNumber <= 1){
-                return ('Rock');
-            }
-            else if (randomNumber <= 2){
-                return ('Paper');
-            }
-            else if (randomNumber <= 3)
-                return ('Scissors');
-            else;
-        }
-
-        const computerSelection = computerPlay(randomNumber);
-
         let playerScore = 0;
         let computerScore = 0;
-
-        function round (computerSelection){
         
-            const playerSelection = prompt ('Rock, Paper, or Scissors! Choose your weapon: ');
-            
-
-            if (playerSelection === 'rock' && computerSelection === 'Paper'){
-                computerScore = computerScore + 1;
-                return ('You lose! Paper beats Rock');
-            }
-            else if (playerSelection === 'rock' && computerSelection === 'Scissors'){
-                playerScore = playerScore + 1;
-                return ('You win! Rock beats Scissors');
-            }
-            else if (playerSelection === 'rock' && computerSelection === 'Rock'){
-                computerScore = computerScore + 0.5;
-                playerScore = playerScore + 0.5;
-                return ('You tie! Rock cancels out Rock');
-            }
-            else if (playerSelection === 'paper' && computerSelection === 'Paper'){
-                computerScore = computerScore + 0.5;
-                playerScore = playerScore + 0.5;
-                return ('You tie! Paper cancels out Paper');
-            }
-            else if (playerSelection === 'paper' && computerSelection === 'Scissors'){
-                computerScore = computerScore + 1;
-                return ('You lose! Scissors beat Paper');
-            }
-            else if (playerSelection === 'paper' && computerSelection === 'Rock'){
-                playerScore = playerScore + 1;
-                return ('You win! Paper beats Rock');
-            }
-            else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
-                playerScore = playerScore + 1;
-                return ('You win! Paper beats Rock');
-            }
-            else if (playerSelection === 'scissors' && computerSelection === 'Scissors'){
-                computerScore = computerScore + 0.5;
-                playerScore = playerScore + 0.5;
-                return ('You Tie! Scissors cancels out Scissors');
-            }
-            else if (playerSelection === 'scissors' && computerSelection === 'Rock'){
-                computerScore = computerScore + 1;
-                return ('You lose! Rock beats Scissors');
-            }
-            else;
-
-            console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
-            console.log (round(computerSelection));
-        } 
-
-
-
         function game(){
-            round (computerSelection);
-            round (computerSelection);
-            round (computerSelection);
-            round (computerSelection);
+            function computerPlay (){
+                let randomNumber = Math.random()*3;
+                
+                if (randomNumber <= 1){
+                    return ('Rock');
+                }
+                else if (randomNumber <= 2){
+                    return ('Paper');
+                }
+                else if (randomNumber <= 3)
+                    return ('Scissors');
+                else;
+            }
+
+            const computerSelection = computerPlay();
+
+            function round (computerSelection){
+            
+                const playerSelection = prompt ('Rock, Paper, or Scissors! Choose your weapon: ');
+                
+
+                if (playerSelection === 'rock' && computerSelection === 'Paper'){
+                    computerScore = computerScore + 1;
+                    return ('You lose! Paper beats Rock');
+                }
+                else if (playerSelection === 'rock' && computerSelection === 'Scissors'){
+                    playerScore = playerScore + 1;
+                    return ('You win! Rock beats Scissors');
+                }
+                else if (playerSelection === 'rock' && computerSelection === 'Rock'){
+                    computerScore = computerScore + 0.5;
+                    playerScore = playerScore + 0.5;
+                    return ('You tie! Rock cancels out Rock');
+                }
+                else if (playerSelection === 'paper' && computerSelection === 'Paper'){
+                    computerScore = computerScore + 0.5;
+                    playerScore = playerScore + 0.5;
+                    return ('You tie! Paper cancels out Paper');
+                }
+                else if (playerSelection === 'paper' && computerSelection === 'Scissors'){
+                    computerScore = computerScore + 1;
+                    return ('You lose! Scissors beat Paper');
+                }
+                else if (playerSelection === 'paper' && computerSelection === 'Rock'){
+                    playerScore = playerScore + 1;
+                    return ('You win! Paper beats Rock');
+                }
+                else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
+                    playerScore = playerScore + 1;
+                    return ('You win! Paper beats Rock');
+                }
+                else if (playerSelection === 'scissors' && computerSelection === 'Scissors'){
+                    computerScore = computerScore + 0.5;
+                    playerScore = playerScore + 0.5;
+                    return ('You Tie! Scissors cancels out Scissors');
+                }
+                else if (playerSelection === 'scissors' && computerSelection === 'Rock'){
+                    computerScore = computerScore + 1;
+                    return ('You lose! Rock beats Scissors');
+                }
+                else;
+
+            } 
+            console.log (round(computerSelection));
+            console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
         }
 
+        function match (){
+            game ();
+            game ();
+            game ();
+            game ();
+            game ();
+        }
 
-        console.log (game());
+        console.log(match());
     </script>
 </body>
 </html>
