@@ -14,94 +14,101 @@
 </body>
 <script>
 
-    const btnRock = document.querySelector('#rock');
-    btnRock.addEventListener('click', function(e) {
-        playerSelection = 'rock';
-        console.log (round(computerSelection, playerSelection));
-        console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
-    });
-
-    const btnPaper = document.querySelector('#paper');
-    btnPaper.addEventListener('click', function (e) {
-        playerSelection = 'paper';
-        console.log (round(computerSelection, playerSelection));
-        console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
-    });
-
-    const btnScissors = document.querySelector('#scissors');
-    btnScissors.addEventListener('click', function (e) {
-        playerSelection = 'scissors';
-        console.log (round(computerSelection, playerSelection));
-        console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+    button.addEventListener('click', match);
     });
 
     let playerScore = 0;
     let computerScore = 0;
-
-    function computerPlay (){
-        let randomNumber = Math.random()*3;
-        
-        if (randomNumber <= 1){
-            return ('Rock');
-        }
-        else if (randomNumber <= 2){
-            return ('Paper');
-        }
-        else if (randomNumber <= 3)
-            return ('Scissors');
-        else;
-    }
-
-    const computerSelection = computerPlay();
     let playerSelection = '';
+    
+    function match (){
+        const btnRock = document.querySelector('#rock');
+        btnRock.addEventListener('click', function(e) {
+            playerSelection = 'rock';
+            console.log (round(computerSelection, playerSelection));
+            console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
+        });
 
-    function round (computerSelection, playerSelection){
-        
+        const btnPaper = document.querySelector('#paper');
+        btnPaper.addEventListener('click', function (e) {
+            playerSelection = 'paper';
+            console.log (round(computerSelection, playerSelection));
+            console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
+        });
 
-        if (playerSelection === 'rock' && computerSelection === 'Paper'){ 
-            computerScore = computerScore + 1;
-            return ('You lose! Paper beats Rock');
-        }
-        else if (playerSelection === 'rock' && computerSelection === 'Scissors'){
-            playerScore = playerScore + 1;
-            return ('You win! Rock beats Scissors');
-        }
-        else if (playerSelection === 'rock' && computerSelection === 'Rock'){
-            computerScore = computerScore + 0.5;
-            playerScore = playerScore + 0.5;
-            return ('You tie! Rock cancels out Rock');
-        }
-        else if (playerSelection === 'paper' && computerSelection === 'Paper'){
-            computerScore = computerScore + 0.5;
-            playerScore = playerScore + 0.5;
-            return ('You tie! Paper cancels out Paper');
-        }
-        else if (playerSelection === 'paper' && computerSelection === 'Scissors'){
-            computerScore = computerScore + 1;
-            return ('You lose! Scissors beat Paper');
-        }
-        else if (playerSelection === 'paper' && computerSelection === 'Rock'){
-            playerScore = playerScore + 1;
-            return ('You win! Paper beats Rock');
-        }
-        else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
-            playerScore = playerScore + 1;
-            return ('You win! Paper beats Rock');
-        }
-        else if (playerSelection === 'scissors' && computerSelection === 'Scissors'){
-            computerScore = computerScore + 0.5;
-            playerScore = playerScore + 0.5;
-            return ('You Tie! Scissors cancels out Scissors');
-        }
-        else if (playerSelection === 'scissors' && computerSelection === 'Rock'){
-            computerScore = computerScore + 1;
-            return ('You lose! Rock beats Scissors');
-        }
-        else {
-            computerScore = computerScore + 1;
-            return ('Sorry, you need to choose "Rock", "Paper", or "Scissors".')
+        const btnScissors = document.querySelector('#scissors');
+        btnScissors.addEventListener('click', function (e) {
+            playerSelection = 'scissors';
+            console.log (round(computerSelection, playerSelection));
+            console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
+        });
+
+        function computerPlay (){
+            let randomNumber = Math.random()*3;
+            
+            if (randomNumber <= 1){
+                return ('Rock');
+            }
+            else if (randomNumber <= 2){
+                return ('Paper');
+            }
+            else if (randomNumber <= 3)
+                return ('Scissors');
+            else;
         }
 
+        let computerSelection = computerPlay();
+
+        function round (computerSelection, playerSelection){
+            
+
+            if (playerSelection === 'rock' && computerSelection === 'Paper'){ 
+                computerScore = computerScore + 1;
+                return ('You lose! Paper beats Rock');
+            }
+            else if (playerSelection === 'rock' && computerSelection === 'Scissors'){
+                playerScore = playerScore + 1;
+                return ('You win! Rock beats Scissors');
+            }
+            else if (playerSelection === 'rock' && computerSelection === 'Rock'){
+                computerScore = computerScore + 0.5;
+                playerScore = playerScore + 0.5;
+                return ('You tie! Rock cancels out Rock');
+            }
+            else if (playerSelection === 'paper' && computerSelection === 'Paper'){
+                computerScore = computerScore + 0.5;
+                playerScore = playerScore + 0.5;
+                return ('You tie! Paper cancels out Paper');
+            }
+            else if (playerSelection === 'paper' && computerSelection === 'Scissors'){
+                computerScore = computerScore + 1;
+                return ('You lose! Scissors beat Paper');
+            }
+            else if (playerSelection === 'paper' && computerSelection === 'Rock'){
+                playerScore = playerScore + 1;
+                return ('You win! Paper beats Rock');
+            }
+            else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
+                playerScore = playerScore + 1;
+                return ('You win! Paper beats Rock');
+            }
+            else if (playerSelection === 'scissors' && computerSelection === 'Scissors'){
+                computerScore = computerScore + 0.5;
+                playerScore = playerScore + 0.5;
+                return ('You Tie! Scissors cancels out Scissors');
+            }
+            else if (playerSelection === 'scissors' && computerSelection === 'Rock'){
+                computerScore = computerScore + 1;
+                return ('You lose! Rock beats Scissors');
+            }
+            else {
+                computerScore = computerScore + 1;
+                return ('Sorry, you need to choose "Rock", "Paper", or "Scissors".')
+            }
+
+        }
     }
     
 </script>
