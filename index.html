@@ -14,9 +14,25 @@
 </body>
 <script>
 
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-    button.addEventListener('click', match);
+    const btnRock = document.querySelector('#rock');
+    btnRock.addEventListener('click', function(e) {
+        playerSelection = 'rock';
+        console.log (match());
+        console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
+    });
+
+    const btnPaper = document.querySelector('#paper');
+    btnPaper.addEventListener('click', function (e) {
+        playerSelection = 'paper';
+        console.log (match());
+        console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
+    });
+
+    const btnScissors = document.querySelector('#scissors');
+    btnScissors.addEventListener('click', function (e) {
+        playerSelection = 'scissors';
+        console.log (match());
+        console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
     });
 
     let playerScore = 0;
@@ -24,26 +40,7 @@
     let playerSelection = '';
     
     function match (){
-        const btnRock = document.querySelector('#rock');
-        btnRock.addEventListener('click', function(e) {
-            playerSelection = 'rock';
-            console.log (round(computerSelection, playerSelection));
-            console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
-        });
-
-        const btnPaper = document.querySelector('#paper');
-        btnPaper.addEventListener('click', function (e) {
-            playerSelection = 'paper';
-            console.log (round(computerSelection, playerSelection));
-            console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
-        });
-
-        const btnScissors = document.querySelector('#scissors');
-        btnScissors.addEventListener('click', function (e) {
-            playerSelection = 'scissors';
-            console.log (round(computerSelection, playerSelection));
-            console.log ((`Player: ${playerScore}`),(`Computer: ${computerScore}`));
-        });
+        
 
         function computerPlay (){
             let randomNumber = Math.random()*3;
@@ -109,6 +106,7 @@
             }
 
         }
+        console.log(round(computerSelection, playerSelection));
     }
     
 </script>
