@@ -10,7 +10,8 @@
     <button id="rock">rock</button>
     <button id="paper">paper</button>
     <button id="scissors">scissors</button>
-    
+    <div class="results"></div>
+    <div class="score"></div>
 </body>
 <script>
 
@@ -106,7 +107,12 @@
             }
 
         }
-        console.log(round(computerSelection, playerSelection));
+        const results = document.querySelector('.results');
+        results.textContent = round(computerSelection, playerSelection);
+        
+        const score = document.querySelector('.score');
+        score.textContent = (`Player: ${playerScore} `) + (`Computer: ${computerScore}`);
+        
     }
     
 </script>
