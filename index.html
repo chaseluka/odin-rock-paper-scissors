@@ -96,11 +96,11 @@
 
         }
 
-        if (playerScore > 4){
+        if (playerScore === 5){
             const results = document.querySelector('.results');
             results.textContent = 'Game Over. You have won!'
         }
-        else if (computerScore > 4){
+        else if (computerScore === 5){
             const results = document.querySelector('.results');
             results.textContent = 'Game Over. You have lost!'
         }
