@@ -14,8 +14,13 @@
         <input type="image" src="images/paper.png" alt="Paper" id="paper" />
         <input type="image" src="images/scissors.png" alt="Scissors" id="scissors" />
     </div>
-    <div class="results"></div>
-    <div class="score"></div>
+    <div>
+        <div class="results"></div>
+        <div class="score"></div>
+    </div>
+    <div class="floaty">
+        <div class="question"> ? </div>
+    </div>
 </body>
 <script>
 
@@ -88,7 +93,7 @@
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
                 playerScore = playerScore + 1;
-                return ('You win! Paper beats Rock');
+                return ('You win! Scissors beats Paper');
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Scissors'){
                 return ('You Tie! Scissors cancels out Scissors');
