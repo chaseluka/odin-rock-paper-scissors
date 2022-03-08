@@ -3,15 +3,21 @@ body {
 }
 
 .selections {
-    height: 150px;
-    width: 150px;
     display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+    gap: 50px;
+    padding: 5px;
 }
 
 input {
-    display: inline;
-    justify-content: space-around;
-    align-items: center;
+    border: 5px solid #eee;
+    border-radius: 200%;
+    max-width: 140px;
 }
 
- 
+input:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #aaa;
+}
