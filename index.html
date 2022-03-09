@@ -33,16 +33,32 @@
             </div>
         </div>
     </div>
+    <div id="game-over">
+        <div class="game-over-container">
+            <div class="game-over-text"></div>
+            <button class="game-over-button" onclick="reset()">Play Again</button>
+        </div>
+    </div>
 </body>
-<script>
+<script> 
 
     function on() {
         document.getElementById("overlay").style.display = "block";
-    }
+    };
 
     function off() {
         document.getElementById("overlay").style.display = "none";
-    }
+    };
+
+    function gameOver() {
+        document.getElementById("game-over").style.display = "block";
+    };
+
+    function reset(){
+        playerScore = 0;
+        computerScore = 0;
+        document.getElementById("game-over").style.display = "none";
+    };
 
     const btnRock = document.querySelector('#rock');
     btnRock.addEventListener('click', function(e) {
@@ -126,12 +142,14 @@
         }
 
         if (playerScore === 5){
-            const results = document.querySelector('.results');
-            results.textContent = 'Game Over. You have won!'
+            gameOver ();
+            const win = document.querySelector('.game-over-text');
+            win.textContent = 'You Won!';
         }
         else if (computerScore === 5){
-            const results = document.querySelector('.results');
-            results.textContent = 'Game Over. You have lost!'
+            gameOver ();
+            const lose = document.querySelector('.game-over-text');
+            lose.textContent = 'You Lost!';
         }
         else if (computerScore < 5 && playerScore < 5) {
             const results = document.querySelector('.results');
