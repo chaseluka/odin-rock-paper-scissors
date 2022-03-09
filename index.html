@@ -19,10 +19,25 @@
         <div class="score"></div>
     </div>
     <div class="floaty">
-        <div class="question"> ? </div>
+        <div class="question" onclick="on()"> ? </div>
+    </div>
+    <div id="overlay" onclick="off()">
+        <div class="container"> 
+            <div class="how-to-container">
+                <div id="how-to">Hi</div>
+            </div>
+        </div>
     </div>
 </body>
 <script>
+
+    function on() {
+        document.getElementById("overlay").style.display = "block";
+    }
+
+    function off() {
+        document.getElementById("overlay").style.display = "none";
+    }
 
     const btnRock = document.querySelector('#rock');
     btnRock.addEventListener('click', function(e) {

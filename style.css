@@ -9,6 +9,7 @@ body {
     justify-content: center;
     gap: 50px;
     padding: 5px;
+    margin-top: 600px;
 }
 
 input {
@@ -54,4 +55,46 @@ input:hover, .question:hover {
     flex: 1;
     text-align: center;
     max-width: 50px;
+}
+
+#overlay {
+    position: fixed; 
+    display: none; 
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6); 
+    z-index: 2; 
+  }
+
+#how-to{
+    flex: 1;
+    position: absolute;
+    font-size: 20px;
+    margin: 20px;
+    text-align: left;
+    color: #eee;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
+
+.container {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    height: 100%;
+}
+
+.how-to-container {
+    position: sticky;
+    right: 20px;
+    margin-top: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #666;
+    width: 200px;
+    margin-bottom: 80px;
+    
 }
