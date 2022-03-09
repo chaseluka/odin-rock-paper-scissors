@@ -50,7 +50,7 @@ input:hover, .question:hover {
 .question {
     font-size: 40px;
     color: #eee;
-    border-radius: 200%;
+    border-radius: 100%;
     border: 3px solid #eee;
     flex: 1;
     text-align: center;
@@ -71,14 +71,10 @@ input:hover, .question:hover {
   }
 
 #how-to{
-    flex: 1;
-    position: absolute;
+    flex-shrink: 1;
     font-size: 20px;
-    margin: 20px;
-    text-align: left;
+    font-weight: bolder;
     color: #eee;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
   }
 
 .container {
@@ -90,11 +86,22 @@ input:hover, .question:hover {
 
 .how-to-container {
     position: sticky;
+    display: flex;
+    flex-direction: column;
     right: 20px;
-    margin-top: 300px;
     border-radius: 10px;
+    padding: 10px;
     box-shadow: 0 0 10px #666;
-    width: 200px;
-    margin-bottom: 80px;
+    width: 220px;
+    margin-bottom: 90px;
+    height: 192px;
     
+}
+
+ol {
+    flex: 1;
+    font-size: 16px;
+    text-align: left;
+    color: #eee;
+    padding-left: 15px;
 }
