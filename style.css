@@ -7,9 +7,17 @@ body {
     flex-wrap: wrap;
     width: auto;
     justify-content: center;
-    gap: 50px;
+    gap: 70px;
     padding: 5px;
-    margin-top: 600px;
+}
+
+.weapon-text {
+    display: flex;
+    font-size: 40px;
+    color: #eee;
+    text-align: center;
+    justify-content: center;
+    margin: 30px 15px;
 }
 
 input {
@@ -25,10 +33,11 @@ input:hover, .question:hover, .game-over-button:hover {
 
 .header {
     text-align: center;
-    font-size: 63px;
+    font-size: 70px;
     color: #eee;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .results, .score {
@@ -45,7 +54,6 @@ input:hover, .question:hover, .game-over-button:hover {
     z-index: 1;
     bottom: 20px;
     margin-right: 20px;
-
 }
 .question {
     font-size: 40px;
