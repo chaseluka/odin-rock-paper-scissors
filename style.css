@@ -1,5 +1,7 @@
 body {
     background-color: #444;
+    display: flex;
+    flex-direction: column;
 }
 
 .selections {
@@ -9,21 +11,22 @@ body {
     justify-content: center;
     gap: 70px;
     padding: 5px;
+    margin-top: 60px;
 }
 
 .weapon-text {
     display: flex;
-    font-size: 40px;
+    font-size: 50px;
     color: #eee;
     text-align: center;
     justify-content: center;
-    margin: 30px 15px;
+    margin: 50px 60px 15px 15px;
 }
 
 input {
     border: 5px solid #eee;
     border-radius: 200%;
-    max-width: 140px;
+    max-width: 160px;
 }
 
 input:hover, .question:hover, .game-over-button:hover {
@@ -33,19 +36,42 @@ input:hover, .question:hover, .game-over-button:hover {
 
 .header {
     text-align: center;
-    font-size: 70px;
+    font-size: 80px;
     color: #eee;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-.results, .score {
+.results{
     text-align: center;
     color: #eee;
     font-size: 21px;
 }
 
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.player, .score {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    font-size: 28px;
+    color: #eee;
+}
+
+.player {
+    gap: 160px;
+}
+
+.score {
+    gap: 180px;
+}
 .floaty {
     display: flex;
     justify-content: right;
@@ -74,8 +100,15 @@ input:hover, .question:hover, .game-over-button:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.6); 
     z-index: 2; 
+  }
+
+  #overlay {
+    background-color: rgba(0,0,0,0.65); 
+  }
+
+  #game-over {
+    background-color: rgba(0,0,0,0.85); 
   }
 
 #how-to{

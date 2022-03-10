@@ -15,9 +15,18 @@
         <input type="image" src="images/paper.png" alt="Paper" id="paper" />
         <input type="image" src="images/scissors.png" alt="Scissors" id="scissors" />
     </div>
-    <div>
+    <div class="outputs">
         <div class="results"></div>
-        <div class="score"></div>
+        <div class="scoreboard">
+            <div class="player">
+                <div class="you">You</div>
+                <div class="cpu">CPU</div>
+            </div>
+            <div class="score">
+                <div class="plyscore"></div>
+                <div class="cpuscore"></div>
+            </div>
+        </div>
     </div>
     <div class="floaty">
         <div class="question" onclick="on()"> ? </div>
@@ -43,6 +52,18 @@
 </body>
 <script> 
 
+    let playerScore = 0;
+    let computerScore = 0;
+    let playerSelection = '';
+    const plyScore = document.querySelector('.plyscore');
+    const cpuScore = document.querySelector('.cpuscore');
+    
+    function score(){
+        plyScore.textContent = (`${playerScore}`);
+        cpuScore.textContent = (`${computerScore}`);
+    };
+    score()
+
     function on() {
         document.getElementById("overlay").style.display = "block";
     };
@@ -59,31 +80,29 @@
         playerScore = 0;
         computerScore = 0;
         document.getElementById("game-over").style.display = "none";
+        score()
     };
 
     const btnRock = document.querySelector('#rock');
     btnRock.addEventListener('click', function(e) {
         playerSelection = 'rock';
         match();
-       
+        score()
     });
 
     const btnPaper = document.querySelector('#paper');
     btnPaper.addEventListener('click', function (e) {
         playerSelection = 'paper';
         match();
-       
+        score()
     });
 
     const btnScissors = document.querySelector('#scissors');
     btnScissors.addEventListener('click', function (e) {
         playerSelection = 'scissors';
         match();
+        score()
     });
-
-    let playerScore = 0;
-    let computerScore = 0;
-    let playerSelection = '';
     
     function match (){
 
@@ -156,9 +175,6 @@
             const results = document.querySelector('.results');
             results.textContent = round(computerSelection, playerSelection);
         }
-        
-        const score = document.querySelector('.score');
-        score.textContent = (`Player: ${playerScore} `) + (`Computer: ${computerScore}`);
         
     }
     
