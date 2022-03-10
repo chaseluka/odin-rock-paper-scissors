@@ -6,27 +6,38 @@ body {
 
 .selections {
     display: flex;
-    flex-wrap: wrap;
     width: auto;
     justify-content: center;
-    gap: 70px;
-    padding: 5px;
     margin-top: 60px;
 }
 
-.weapon-text {
+.selections-container {
     display: flex;
-    font-size: 50px;
-    color: #eee;
-    text-align: center;
+    width: 650px;
+    padding: 5px 20px;
+    justify-content: space-between;
+}
+
+.weapon {
+    display: flex;
+    margin: 15px;
     justify-content: center;
-    margin: 50px 60px 15px 15px;
+    flex-wrap: nowrap;
+    width: auto;
+}
+
+.weapon-text {
+    font-size: 4vw;
+    color: #eee;
+    flex-shrink: 1;
 }
 
 input {
     border: 5px solid #eee;
     border-radius: 200%;
-    max-width: 160px;
+    max-width: 170px;
+    width: 27%;
+    flex-shrink: 1;
 }
 
 input:hover, .question:hover, .game-over-button:hover {
@@ -40,47 +51,56 @@ input:hover, .question:hover, .game-over-button:hover {
     color: #eee;
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin: 15px 0px 50px 0px;
 }
 
 .results{
     text-align: center;
     color: #eee;
-    font-size: 21px;
+    font-size: 26px;
 }
 
-.scoreboard {
+.output, .scoreboard {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 200px;
 }
 
+.output {
+    margin-top: 30px;
+    gap: 30px;
+}
+
+.scoreboard {
+    width: 320px;
+    gap: 15px;
+}
 .player, .score {
     display: flex;
     flex-direction: row;
     flex: 1;
     justify-content: center;
-    font-size: 28px;
+    font-size: 33px;
     color: #eee;
 }
 
 .player {
-    gap: 160px;
+    gap: 150px;
 }
 
 .score {
-    gap: 180px;
+    gap: 187px;
 }
+
 .floaty {
     display: flex;
     justify-content: right;
-    position: -webkit-sticky;
     position: sticky;
     z-index: 1;
     bottom: 20px;
     margin-right: 20px;
 }
+
 .question {
     font-size: 40px;
     color: #eee;
@@ -171,7 +191,7 @@ ol {
 }
 
 .game-over-text {
-    font-size: 50px;
+    font-size: 45px;
     color: #eee;
     flex-wrap: wrap;
 }
