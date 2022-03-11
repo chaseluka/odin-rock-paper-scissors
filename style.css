@@ -27,7 +27,7 @@ body {
 }
 
 .weapon-text {
-    font-size: 4vw;
+    font-size: 4.5vw;
     color: #eee;
     flex-shrink: 1;
 }
@@ -121,16 +121,9 @@ input:hover, .question:hover, .game-over-button:hover {
     right: 0;
     bottom: 0;
     z-index: 2; 
-  }
-
-  #overlay {
-    background-color: rgba(0,0,0,0.65); 
-  }
-
-  #game-over {
     background-color: rgba(0,0,0,0.85); 
   }
-
+  
 #how-to{
     flex-shrink: 1;
     font-size: 20px;

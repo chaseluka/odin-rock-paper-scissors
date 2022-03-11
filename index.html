@@ -53,14 +53,23 @@
             <button class="game-over-button" onclick="reset()">Play Again</button>
         </div>
     </div>
+    <audio src="audio/scissors.mp3" id="scsaudio"></audio>
+    <audio src="audio/rock.wav" id="rckaudio"></audio>
+    <audio src="audio/paper.wav" id="ppraudio"></audio>
 </body>
 <script> 
 
     let playerScore = 0;
     let computerScore = 0;
     let playerSelection = '';
+    let computerSelection = '';
     const plyScore = document.querySelector('.plyscore');
     const cpuScore = document.querySelector('.cpuscore');
+    const scsAudio = document.querySelector('#scsaudio');
+    const rckAudio = document.querySelector('#rckaudio');
+    const pprAudio = document.querySelector('#ppraudio');
+
+    
     
     function score(){
         plyScore.textContent = (`${playerScore}`);
@@ -84,28 +93,34 @@
         playerScore = 0;
         computerScore = 0;
         document.getElementById("game-over").style.display = "none";
-        score()
+        score();
     };
 
     const btnRock = document.querySelector('#rock');
     btnRock.addEventListener('click', function(e) {
         playerSelection = 'rock';
         match();
-        score()
+        score();
+        rckAudio.currentTime = 0;
+        rckAudio.play();
     });
 
     const btnPaper = document.querySelector('#paper');
     btnPaper.addEventListener('click', function (e) {
         playerSelection = 'paper';
         match();
-        score()
+        score();
+        pprAudio.currentTime = 0;
+        pprAudio.play();
     });
 
     const btnScissors = document.querySelector('#scissors');
     btnScissors.addEventListener('click', function (e) {
         playerSelection = 'scissors';
         match();
-        score()
+        score();
+        scsAudio.currentTime = 0;
+        scsAudio.play();
     });
     
     function match (){
@@ -122,7 +137,7 @@
             else if (randomNumber <= 3)
                 return ('Scissors');
             else;
-        }
+        };
 
         let computerSelection = computerPlay();
 
@@ -130,11 +145,11 @@
             
 
             if (playerSelection === 'rock' && computerSelection === 'Paper'){ 
-                computerScore = computerScore + 1;
+                ++computerScore;
                 return ('You lose! Paper beats Rock');
             }
             else if (playerSelection === 'rock' && computerSelection === 'Scissors'){
-                playerScore = playerScore + 1;
+                ++playerScore;
                 return ('You win! Rock beats Scissors');
             }
             else if (playerSelection === 'rock' && computerSelection === 'Rock'){
@@ -144,26 +159,29 @@
                 return ('You tie! Paper cancels out Paper');
             }
             else if (playerSelection === 'paper' && computerSelection === 'Scissors'){
-                computerScore = computerScore + 1;
+                ++computerScore;
                 return ('You lose! Scissors beat Paper');
             }
             else if (playerSelection === 'paper' && computerSelection === 'Rock'){
-                playerScore = playerScore + 1;
+                ++playerScore;
                 return ('You win! Paper beats Rock');
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
-                playerScore = playerScore + 1;
+                ++playerScore;
                 return ('You win! Scissors beats Paper');
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Scissors'){
                 return ('You Tie! Scissors cancels out Scissors');
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Rock'){
-                computerScore = computerScore + 1;
+                ++computerScore;
                 return ('You lose! Rock beats Scissors');
             }
 
-        }
+        };
+
+        const results = document.querySelector('.results');
+        results.textContent = round(computerSelection, playerSelection);
 
         if (playerScore === 5){
             gameOver ();
@@ -174,13 +192,10 @@
             gameOver ();
             const lose = document.querySelector('.game-over-text');
             lose.textContent = 'You Lost!';
-        }
-        else if (computerScore < 5 && playerScore < 5) {
-            const results = document.querySelector('.results');
-            results.textContent = round(computerSelection, playerSelection);
-        }
-        
-    }
+        };
+
+
+        };
     
 </script>
 </html>
