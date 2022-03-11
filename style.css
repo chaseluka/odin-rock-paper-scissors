@@ -111,7 +111,7 @@ input:hover, .question:hover, .game-over-button:hover {
     max-width: 50px;
 }
 
-#overlay, #game-over {
+#overlay, #game-over, #stats {
     position: fixed; 
     display: none; 
     width: 100%; 
@@ -123,7 +123,7 @@ input:hover, .question:hover, .game-over-button:hover {
     z-index: 2; 
     background-color: rgba(0,0,0,0.85); 
   }
-  
+
 #how-to{
     flex-shrink: 1;
     font-size: 20px;
@@ -161,7 +161,7 @@ ol {
     padding-left: 15px;
 }
 
-.game-over-container {
+.game-over-container, .stats-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -183,7 +183,7 @@ ol {
 
 }
 
-.game-over-text {
+.game-over-text, .stats-container {
     font-size: 45px;
     color: #eee;
     flex-wrap: wrap;

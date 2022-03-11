@@ -9,6 +9,25 @@
 </head>
 <body>
     <div class="header">Rock Paper Scissors</div>
+    <div class="stats-on" onclick="statsOn()">Stats</div>
+    <div id="stats" onclick="statsOff()">
+        <div class="stats-container">
+            <ul class="stats-text">
+                <li class="round"></li>
+                <li class="plywins"></li>
+                <li class="cpuwins"></li>
+                <li class="wn-prct"></li>
+                <li>
+                    <ul>
+                        <li class="rck-select"></li>
+                        <li class="ppr-select"></li>
+                        <li class="scs-select"></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
     <div class="weapon">
         <div class="weapon-text">Choose your Weapon:</div>
     </div>
@@ -61,15 +80,32 @@
 
     let playerScore = 0;
     let computerScore = 0;
+    let playerWins = 0;
+    let computerWins = 0;
     let playerSelection = '';
     let computerSelection = '';
+    let rnd = 0;
     const plyScore = document.querySelector('.plyscore');
     const cpuScore = document.querySelector('.cpuscore');
     const scsAudio = document.querySelector('#scsaudio');
     const rckAudio = document.querySelector('#rckaudio');
     const pprAudio = document.querySelector('#ppraudio');
-
+    const btnRock = document.querySelector('#rock');
+    const btnPaper = document.querySelector('#paper');
+    const btnScissors = document.querySelector('#scissors');
+    const rndPly = document.querySelector('.round');
+    const plyWins = document.querySelector('.plywins');
+    const cpuWins = document.querySelector('.cpuwins');
+    const wnPrct = document.querySelector('.wn-prct');
     
+    
+    function stats() {
+        rndPly.textContent = (`${rnd}`);
+        plyWins.textContent = (`${playerWins}`);
+        cpuWins.textContent = (`${computerWins}`);
+        wnPrct.textContent = (((`${playerWins}`)/(`${rnd}`)) *100).toFixed(1);
+    }
+    stats();
     
     function score(){
         plyScore.textContent = (`${playerScore}`);
@@ -85,6 +121,14 @@
         document.getElementById("overlay").style.display = "none";
     };
 
+    function statsOn() {
+        document.getElementById("stats").style.display = "block";
+    };
+
+    function statsOff() {
+        document.getElementById("stats").style.display = "none";
+    };
+
     function gameOver() {
         document.getElementById("game-over").style.display = "block";
     };
@@ -96,7 +140,6 @@
         score();
     };
 
-    const btnRock = document.querySelector('#rock');
     btnRock.addEventListener('click', function(e) {
         playerSelection = 'rock';
         match();
@@ -105,7 +148,6 @@
         rckAudio.play();
     });
 
-    const btnPaper = document.querySelector('#paper');
     btnPaper.addEventListener('click', function (e) {
         playerSelection = 'paper';
         match();
@@ -114,7 +156,7 @@
         pprAudio.play();
     });
 
-    const btnScissors = document.querySelector('#scissors');
+    
     btnScissors.addEventListener('click', function (e) {
         playerSelection = 'scissors';
         match();
@@ -143,13 +185,16 @@
 
         function round (computerSelection, playerSelection){
             
+            ++rnd;
 
             if (playerSelection === 'rock' && computerSelection === 'Paper'){ 
                 ++computerScore;
+                ++computerWins;
                 return ('You lose! Paper beats Rock');
             }
             else if (playerSelection === 'rock' && computerSelection === 'Scissors'){
                 ++playerScore;
+                ++ playerWins;
                 return ('You win! Rock beats Scissors');
             }
             else if (playerSelection === 'rock' && computerSelection === 'Rock'){
@@ -160,14 +205,17 @@
             }
             else if (playerSelection === 'paper' && computerSelection === 'Scissors'){
                 ++computerScore;
+                ++computerWins;
                 return ('You lose! Scissors beat Paper');
             }
             else if (playerSelection === 'paper' && computerSelection === 'Rock'){
                 ++playerScore;
+                ++ playerWins;
                 return ('You win! Paper beats Rock');
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
                 ++playerScore;
+                ++ playerWins;
                 return ('You win! Scissors beats Paper');
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Scissors'){
@@ -175,6 +223,7 @@
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Rock'){
                 ++computerScore;
+                ++computerWins;
                 return ('You lose! Rock beats Scissors');
             }
 
@@ -194,8 +243,9 @@
             lose.textContent = 'You Lost!';
         };
 
+        stats();
 
-        };
+    };
     
 </script>
 </html>
