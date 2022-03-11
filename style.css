@@ -1,5 +1,5 @@
 body {
-    background-color: #444;
+    background-color: #393939;
     display: flex;
     flex-direction: column;
 }
@@ -27,9 +27,10 @@ body {
 }
 
 .weapon-text {
-    font-size: 4.5vw;
+    width: 50vw;
+    font-size: 4vmax;
     color: #eee;
-    flex-shrink: 1;
+    text-align: center;
 }
 
 input {
@@ -43,6 +44,10 @@ input {
 input:hover, .question:hover, .game-over-button:hover {
     transform: scale(1.1);
     box-shadow: 0 0 10px #aaa;
+}
+
+.stats-on:hover {
+    transform: scale(1.1);
 }
 
 .header {
@@ -121,7 +126,7 @@ input:hover, .question:hover, .game-over-button:hover {
     right: 0;
     bottom: 0;
     z-index: 2; 
-    background-color: rgba(0,0,0,0.85); 
+    background-color: rgba(0,0,0,0.82); 
   }
 
 #how-to{
@@ -183,8 +188,33 @@ ol {
 
 }
 
-.game-over-text, .stats-container {
+.game-over-text {
     font-size: 45px;
     color: #eee;
     flex-wrap: wrap;
+}
+
+.stats-container {
+    font-size: 20px;
+    color: #eee;
+}
+
+.stats-text {
+    list-style-type: none;
+    display: flex;
+    min-width: 250px;
+    gap: 15px;
+    flex-direction: column;
+
+}
+
+.stats-on {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: 25px;
+    color: #eee;
+    text-decoration: underline;
+    margin-bottom: 20px;
+
 }

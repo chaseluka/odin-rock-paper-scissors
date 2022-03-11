@@ -16,10 +16,11 @@
                 <li class="round"></li>
                 <li class="plywins"></li>
                 <li class="cpuwins"></li>
+                <li class="draws"></li>
                 <li class="wn-prct"></li>
                 <li class="match-won-ply"></li>
                 <li class="match-won-cpu"></li>
-                <li>Selected Percentage of: 
+                <li>Percent of Selected Weapon: 
                     <ul>
                         <li class="rck-select"></li>
                         <li class="ppr-select"></li>
@@ -109,17 +110,19 @@
     const scsSelect = document.querySelector('.scs-select');
     const plyMtchWn = document.querySelector('.match-won-ply');
     const cpuMtchWn = document.querySelector('.match-won-cpu');
+    const draws = document.querySelector('.draws');
     
     function stats() {
         rndPly.textContent = "Rounds Played: " + (`${rnd}`);
         plyWins.textContent = "Player Fights Won: " + (`${playerWins}`);
         cpuWins.textContent =  "CPU Fights Won: " + (`${computerWins}`);
-        wnPrct.textContent = "Fights Won Percentage: " + (((`${playerWins}`)/(`${rnd}`)) *100).toFixed(1) + "%";
+        wnPrct.textContent = "Percent of Fights Won: " + (((`${playerWins}`)/(`${rnd}`)) *100).toFixed(1) + "%";
         plyMtchWn.textContent = "Player Matches Won: " + (`${plyMatchWins}`);
         cpuMtchWn.textContent = "CPU Matches Won: " + (`${cpuMatchWins}`);
         rckSelect.textContent = "Rock: " + (((`${rock}`)/(`${rnd}`)) * 100).toFixed(1) + "%";
         pprSelect.textContent = "Paper: " + (((`${paper}`)/(`${rnd}`)) * 100).toFixed(1) + "%";
         scsSelect.textContent = "Scissors: " + (((`${scissors}`)/(`${rnd}`)) * 100).toFixed(1) + "%";
+        draws.textContent = "Draws: " + (((`${rnd}`)*1) - (((`${playerWins}`)*1) + ((`${computerWins}`)*1)));
     }
     stats();
     
