@@ -17,7 +17,9 @@
                 <li class="plywins"></li>
                 <li class="cpuwins"></li>
                 <li class="wn-prct"></li>
-                <li>
+                <li class="match-won-ply"></li>
+                <li class="match-won-cpu"></li>
+                <li>Selected Percentage of: 
                     <ul>
                         <li class="rck-select"></li>
                         <li class="ppr-select"></li>
@@ -82,9 +84,14 @@
     let computerScore = 0;
     let playerWins = 0;
     let computerWins = 0;
+    let plyMatchWins = 0;
+    let cpuMatchWins = 0;
     let playerSelection = '';
     let computerSelection = '';
     let rnd = 0;
+    let rock = 0;
+    let paper = 0;
+    let scissors = 0;
     const plyScore = document.querySelector('.plyscore');
     const cpuScore = document.querySelector('.cpuscore');
     const scsAudio = document.querySelector('#scsaudio');
@@ -97,13 +104,22 @@
     const plyWins = document.querySelector('.plywins');
     const cpuWins = document.querySelector('.cpuwins');
     const wnPrct = document.querySelector('.wn-prct');
-    
+    const rckSelect = document.querySelector('.rck-select');
+    const pprSelect = document.querySelector('.ppr-select');
+    const scsSelect = document.querySelector('.scs-select');
+    const plyMtchWn = document.querySelector('.match-won-ply');
+    const cpuMtchWn = document.querySelector('.match-won-cpu');
     
     function stats() {
-        rndPly.textContent = (`${rnd}`);
-        plyWins.textContent = (`${playerWins}`);
-        cpuWins.textContent = (`${computerWins}`);
-        wnPrct.textContent = (((`${playerWins}`)/(`${rnd}`)) *100).toFixed(1);
+        rndPly.textContent = "Rounds Played: " + (`${rnd}`);
+        plyWins.textContent = "Player Fights Won: " + (`${playerWins}`);
+        cpuWins.textContent =  "CPU Fights Won: " + (`${computerWins}`);
+        wnPrct.textContent = "Fights Won Percentage: " + (((`${playerWins}`)/(`${rnd}`)) *100).toFixed(1) + "%";
+        plyMtchWn.textContent = "Player Matches Won: " + (`${plyMatchWins}`);
+        cpuMtchWn.textContent = "CPU Matches Won: " + (`${cpuMatchWins}`);
+        rckSelect.textContent = "Rock: " + (((`${rock}`)/(`${rnd}`)) * 100).toFixed(1) + "%";
+        pprSelect.textContent = "Paper: " + (((`${paper}`)/(`${rnd}`)) * 100).toFixed(1) + "%";
+        scsSelect.textContent = "Scissors: " + (((`${scissors}`)/(`${rnd}`)) * 100).toFixed(1) + "%";
     }
     stats();
     
@@ -190,40 +206,49 @@
             if (playerSelection === 'rock' && computerSelection === 'Paper'){ 
                 ++computerScore;
                 ++computerWins;
+                ++rock;
                 return ('You lose! Paper beats Rock');
             }
             else if (playerSelection === 'rock' && computerSelection === 'Scissors'){
                 ++playerScore;
-                ++ playerWins;
+                ++playerWins;
+                ++rock;
                 return ('You win! Rock beats Scissors');
             }
             else if (playerSelection === 'rock' && computerSelection === 'Rock'){
+                ++rock;
                 return ('You tie! Rock cancels out Rock');
             }
             else if (playerSelection === 'paper' && computerSelection === 'Paper'){
+                ++paper;
                 return ('You tie! Paper cancels out Paper');
             }
             else if (playerSelection === 'paper' && computerSelection === 'Scissors'){
                 ++computerScore;
                 ++computerWins;
+                ++paper;
                 return ('You lose! Scissors beat Paper');
             }
             else if (playerSelection === 'paper' && computerSelection === 'Rock'){
                 ++playerScore;
-                ++ playerWins;
+                ++playerWins;
+                ++paper;
                 return ('You win! Paper beats Rock');
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
                 ++playerScore;
-                ++ playerWins;
+                ++playerWins;
+                ++scissors;
                 return ('You win! Scissors beats Paper');
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Scissors'){
+                ++scissors;
                 return ('You Tie! Scissors cancels out Scissors');
             }
             else if (playerSelection === 'scissors' && computerSelection === 'Rock'){
                 ++computerScore;
                 ++computerWins;
+                ++scissors;
                 return ('You lose! Rock beats Scissors');
             }
 
@@ -236,11 +261,13 @@
             gameOver ();
             const win = document.querySelector('.game-over-text');
             win.textContent = 'You Won!';
+            ++plyMatchWins;
         }
         else if (computerScore === 5){
             gameOver ();
             const lose = document.querySelector('.game-over-text');
             lose.textContent = 'You Lost!';
+            ++cpuMatchWins;
         };
 
         stats();
